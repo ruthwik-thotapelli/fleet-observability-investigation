@@ -43,3 +43,4 @@ FROM telemetry
 WHERE robot_id = 'Robot_04'
 GROUP BY robot_id
 HAVING MAX(battery_level) > MIN(battery_level); -- Battery should only go down during trips
+ 
