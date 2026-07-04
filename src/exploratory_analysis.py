@@ -49,3 +49,4 @@ class ExploratoryAnalyzer:
         self.plot_cpu_behavior(telemetry)
         self.plot_network_latency(telemetry)
         print("EDA Visualizations saved to outputs/figures/")
+ 
