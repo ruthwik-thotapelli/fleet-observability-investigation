@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store
+.env
+.vscode/
+.idea/
+outputs/figures/*
+outputs/tables/*
+data/processed/*
