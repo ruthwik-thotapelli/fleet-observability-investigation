@@ -25,3 +25,4 @@ Robot_01 suffered the only mission-critical failure, resulting in a cancelled tr
 - Telemetry timestamps (e.g., `2026-06-30T10:04:00`) correspond directly to the event log timestamps (e.g., `10:05:12`) on the same day.
 - A coordinate of `999, 999` represents an unhandled null or out-of-bounds error rather than a physical location.
 - No physical battery hot-swaps occurred while Robot_04 was in the `running` state.
+ 
