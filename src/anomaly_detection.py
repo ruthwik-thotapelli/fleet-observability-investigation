@@ -35,11 +35,38 @@ def detect_anomalies(telemetry: pd.DataFrame, events: pd.DataFrame) -> dict:
     return anomalies
 
 if __name__ == '__main__':
+    import os
+    import sys
+    
+    # Handle paths whether run from root or src directory
+    current_dir = os.getcwd()
+    if os.path.basename(current_dir) == 'src':
+        data_path = '../data'
+        output_path = '../outputs/anomaly_report.csv'
+    else:
+        sys.path.append('src')
+        data_path = 'data'
+        output_path = 'outputs/anomaly_report.csv'
+        
     from data_loader import DataLoader
-    dl = DataLoader('../data')
+    
+    dl = DataLoader(data_path)
     t, tr, e = dl.load_all()
     detected = detect_anomalies(t, e)
+    
+    report_rows = []
     for category, items in detected.items():
         print(f"--- {category.upper()} ---")
         for item in items:
             print(item)
+            row = {'category': category, 'timestamp': item.get('timestamp'), 'robot_id': item.get('robot_id')}
+            details = {k: v for k, v in item.items() if k not in ['timestamp', 'robot_id']}
+            row['details'] = str(details)
+            report_rows.append(row)
+            
+    if report_rows:
+        df_report = pd.DataFrame(report_rows)
+        df_report.to_csv(output_path, index=False)
+        print(f"\nAnomaly report saved to {output_path}")
+    else:
+        print("\nNo anomalies detected. No report generated.")

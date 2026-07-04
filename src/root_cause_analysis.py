@@ -38,8 +38,26 @@ class RootCauseAnalyzer:
         return report
 
 if __name__ == '__main__':
-    analyzer = RootCauseAnalyzer('../outputs/timeline.csv')
+    import os
+    
+    # Handle paths whether run from root or src directory
+    current_dir = os.getcwd()
+    if os.path.basename(current_dir) == 'src':
+        timeline_path = '../outputs/timeline.csv'
+        output_path = '../outputs/root_cause_report.txt'
+    else:
+        timeline_path = 'outputs/timeline.csv'
+        output_path = 'outputs/root_cause_report.txt'
+        
+    analyzer = RootCauseAnalyzer(timeline_path)
     results = analyzer.analyze_trip_failures()
-    for r in results:
-        print(f"Robot: {r['robot_id']}")
-        print(f"Root Cause: {r['root_cause']}")
+    
+    with open(output_path, 'w') as f:
+        for r in results:
+            print(f"Robot: {r['robot_id']}")
+            print(f"Root Cause: {r['root_cause']}")
+            f.write(f"Robot: {r['robot_id']}\n")
+            f.write(f"Root Cause: {r['root_cause']}\n")
+            f.write("-" * 40 + "\n")
+            
+    print(f"\nRoot cause report saved to {output_path}")
