@@ -1,0 +1,18 @@
+10:05:12 Robot_01 TripStarted T101
+10:05:14 Robot_01 ResourceLockAcquired Zone_A
+10:05:55 Robot_01 BatteryLowWarning
+10:06:10 Robot_01 NetworkLatencyHigh 1450ms
+10:06:18 Robot_01 ResourceLockTimeout Zone_B
+10:06:20 Robot_01 TripCancelled T101
+
+10:15:00 Robot_02 TripStarted T102
+10:15:00 Robot_02 TripStarted T102
+10:21:30 Robot_02 CPUHigh 95%
+
+10:17:40 Robot_03 TripStarted T204
+10:17:42 Robot_03 ResourceLockAcquired Zone_C
+10:18:05 Robot_03 PositionJumpDetected
+10:18:15 Robot_03 TripCompleted T204
+
+10:40:00 Robot_04 TripStarted T301
+10:44:00 Robot_04 BatteryLevelJump 32->41

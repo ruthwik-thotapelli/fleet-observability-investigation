@@ -1,0 +1,5 @@
+trip_id,robot_id,trip_start,trip_end,source,destination,trip_status
+T101,Robot_01,10:05:12,10:06:20,A,B,cancelled
+T102,Robot_02,10:15:00,10:25:00,C,D,completed
+T204,Robot_03,10:17:40,10:18:15,X,Y,completed
+T301,Robot_04,10:40:00,,M,N,running
