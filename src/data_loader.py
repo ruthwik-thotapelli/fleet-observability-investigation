@@ -43,3 +43,4 @@ class DataLoader:
 
     def load_all(self) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
         return self.load_telemetry(), self.load_trips(), self.load_events()
+ 
