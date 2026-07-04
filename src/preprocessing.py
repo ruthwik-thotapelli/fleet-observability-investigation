@@ -59,3 +59,4 @@ def run_profiling(telemetry: pd.DataFrame, trips: pd.DataFrame, events: pd.DataF
                    e_prof['missing_values'] + e_prof['duplicates']
     score = max(0, 100 - (total_issues / total_records * 100))
     print(f"Estimated Quality Score: {score:.2f}/100")
+ 
